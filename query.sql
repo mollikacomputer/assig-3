@@ -34,3 +34,24 @@ INSERT INTO matches (match_id, fixture, tournament_category, base_ticket_price, 
 (103, 'Bayern Munich vs PSG', 'Champions League', 130.00, 'Available'),
 (104, 'AC Milan vs Inter Milan', 'Serie A', 90.00, 'Sold Out'),
 (105, 'Juventus vs Roma', 'Serie A', 80.00, 'Available');
+
+-- create booking table
+CREATE TABLE bookings (
+    booking_id INT PRIMARY KEY,
+
+    user_id INT NOT NULL
+        CONSTRAINT fk_booking_user
+        REFERENCES users(user_id),
+
+    match_id INT NOT NULL
+        CONSTRAINT fk_booking_match
+        REFERENCES matches(match_id),
+
+    seat_number VARCHAR(10),
+
+    payment_status VARCHAR(20)
+        CHECK (payment_status IN ('Confirmed', 'Pending', 'Cancelled')),
+
+    total_cost DECIMAL(10,2) NOT NULL
+);
+ 
