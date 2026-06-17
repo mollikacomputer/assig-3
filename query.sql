@@ -15,3 +15,15 @@ INSERT INTO users(full_name, email, role, phone_number) VALUES
   ('Asif Haque', 'info@asif.com', 'Football Fan', +8801910000473),
   ('Sajjad Rahman', 'info@sajjad.com', 'Football Fan', +8801714924473),
   ('Jannat Ara', 'info@jannat.com', 'Football Fan', +8801614924473);
+
+-- create matches table
+CREATE TABLE matches (
+    match_id INT PRIMARY KEY,
+    fixture VARCHAR(100) NOT NULL,
+    tournament_category VARCHAR(50) NOT NULL,
+    base_ticket_price DECIMAL(10,2) NOT NULL,
+    match_status VARCHAR(20) NOT NULL CHECK (
+        match_status IN ('Available', 'Selling Fast', 'Sold Out')
+    )
+);
+-- insert data into matches information
