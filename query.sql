@@ -26,4 +26,11 @@ CREATE TABLE matches (
         match_status IN ('Available', 'Selling Fast', 'Sold Out')
     )
 );
+
 -- insert data into matches information
+INSERT INTO matches (match_id, fixture, tournament_category, base_ticket_price, match_status) VALUES
+(101, 'Real Madrid vs Barcelona', 'Champions League', 150.00, 'Available'),
+(102, 'Man City vs Liverpool', 'Premier League', 120.00, 'Selling Fast'),
+(103, 'Bayern Munich vs PSG', 'Champions League', 130.00, 'Available'),
+(104, 'AC Milan vs Inter Milan', 'Serie A', 90.00, 'Sold Out'),
+(105, 'Juventus vs Roma', 'Serie A', 80.00, 'Available');
