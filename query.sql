@@ -81,3 +81,20 @@ SELECT booking_id, user_id, match_id,
     total_cost
 FROM bookings
 WHERE payment_status IS NULL;
+
+-- Query 4: Retrieve match booking details along with the User's full name and the scheduled Match fixture teams
+
+SELECT b.booking_id, u.full_name, m.fixture, b.total_cost
+FROM bookings as b
+INNER JOIN users as u
+    ON b.user_id = u.user_id
+INNER JOIN matches as m
+    ON b.match_id = m.match_id;
+
+-- Query 5: Display a comprehensive list of all users and their booking IDs, ensuring that fans who have never bought a ticket are still listed.
+
+SELECT u.user_id, u.full_name, b.booking_id
+FROM users as u
+LEFT JOIN bookings as b
+    ON u.user_id = b.user_id
+ORDER BY u.user_id, b.booking_id;
