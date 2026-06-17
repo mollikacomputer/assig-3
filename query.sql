@@ -54,4 +54,11 @@ CREATE TABLE bookings (
 
     total_cost DECIMAL(10,2) NOT NULL
 );
- 
+-- insert into bookings data
+INSERT INTO bookings (booking_id, user_id, match_id, seat_number, payment_status, total_cost) VALUES
+(501, 1, 101, 'A-12', 'Confirmed', 150.00),
+(502, 1, 102, 'B-04', 'Confirmed', 120.00),
+(503, 2, 101, 'A-13', 'Confirmed', 150.00),
+(504, 2, 101, NULL, NULL, 150.00),
+(505, 3, 102, 'C-20', 'Pending', 120.00);
+
